@@ -6,6 +6,8 @@ function Login({ closeLoginpage, setJoinPage, setOpenLoginPage, URI }) {
 
   const id = useRef();
   const password = useRef();
+  const backPORT = process.env.REACT_APP_BACK_DEFAULT_PORT;
+  const frontPORT = process.env.REACT_APP_FRONT_DEFAULT_PORT;
 
   function clickLoginBtn(event) {
     event.preventDefault();
@@ -23,7 +25,7 @@ function Login({ closeLoginpage, setJoinPage, setOpenLoginPage, URI }) {
 
   useEffect(() => {
     if (resObj.login_id) {
-      fetch('http://' + URI + ':8000/user/login', {
+      fetch('http://' + URI + backPORT + '/user/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', // 헤더 없으면 에러남
@@ -42,7 +44,7 @@ function Login({ closeLoginpage, setJoinPage, setOpenLoginPage, URI }) {
             localStorage.setItem('id', res.id);
             localStorage.setItem('kor_name', res.name);
           }
-          if (res.token) window.location.href = 'http://' + URI + ':3000/works';
+          if (res.token) window.location.href = 'http://' + URI + frontPORT + '/works';
         });
     }
   }, [resObj]);

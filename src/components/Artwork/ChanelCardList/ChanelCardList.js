@@ -5,11 +5,12 @@ import './chanelCardList.scss';
 
 function CardList({ filter, URI }) {
   const [data, setData] = useState([]);
+  const backPORT= process.env.REACT_APP_BACK_DEFAULT_PORT
   let param = useParams();
   let params = param.user_id;
 
   useEffect(() => {
-    fetch('http://' + URI + ':8000/channel/' + params)
+    fetch('http://' + URI + backPORT + '/channel/' + params)
       .then(res => res.json())
       .then(data => {
         setData(data.usersPosts);

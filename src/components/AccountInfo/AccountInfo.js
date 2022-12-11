@@ -5,6 +5,7 @@ import DeleteModal from './DeleteModal/DeleteModal';
 
 const AccountInfo = ({ URI }) => {
   const navigate = useNavigate();
+  const backPORT = process.env.REACT_APP_BACK_DEFAULT_PORT;
   const [modalOpen, setModalOpen] = useState(false);
   const [accountInfo, setAccountInfo] = useState({
     login_id: '',
@@ -26,7 +27,7 @@ const AccountInfo = ({ URI }) => {
 
   //계정정보 fetch
   useEffect(() => {
-    fetch('http://' + URI + ':8000/user/accountInfo', {
+    fetch('http://' + URI + backPORT + '/user/accountInfo', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -46,7 +47,7 @@ const AccountInfo = ({ URI }) => {
   //수정된 계정정보 서버로 저장
   const saveAccountInfo = e => {
     e.preventDefault();
-    fetch('http://' + URI + ':8000/user/accountInfo', {
+    fetch('http://' + URI + backPORT + '/user/accountInfo', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

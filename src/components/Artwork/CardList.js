@@ -5,6 +5,7 @@ import './cardList.scss';
 
 function CardList({ filter, URI, testState }) {
   const [data, setData] = useState([]);
+  const backPORT = process.env.REACT_APP_BACK_DEFAULT_PORT;
 
   let param = useParams();
   let params = param.user_id;
@@ -12,14 +13,14 @@ function CardList({ filter, URI, testState }) {
 
   useEffect(() => {
     if (location.pathname === '/works' && location.search === '') {
-      fetch('http://' + URI + ':8000/works')
+      fetch('http://' + URI + backPORT + '/works')
         .then(res => res.json())
         .then(data => {
           setData(data.worksFeedList);
         });
       return;
     } else if (location.search === '?sort=recommendpoint') {
-      fetch('http://' + URI + ':8000/works?sort=recommendpoint', {
+      fetch('http://' + URI + backPORT + '/works?sort=recommendpoint', {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -30,7 +31,7 @@ function CardList({ filter, URI, testState }) {
         });
       return;
     } else if (location.search === '?sort=sympathycnt') {
-      fetch('http://' + URI + ':8000/works?sort=sympathycnt', {
+      fetch('http://' + URI + backPORT + '/works?sort=sympathycnt', {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -41,7 +42,7 @@ function CardList({ filter, URI, testState }) {
         });
       return;
     } else if (location.pathname === '/feeds') {
-      fetch('http://' + URI + ':8000/feeds/list', {
+      fetch('http://' + URI + backPORT + '/feeds/list', {
         headers: {
           'Content-Type': 'application/json',
           Authorization: localStorage.getItem('token'),
@@ -55,35 +56,35 @@ function CardList({ filter, URI, testState }) {
     } else if (location.pathname === '/searchlist') {
       // let params = new URLSearchParams(location.search);
       let params = window.location.search;
-      fetch('http://' + URI + ':8000/searchlist' + params)
+      fetch('http://' + URI + backPORT + '/searchlist' + params)
         .then(res => res.json())
         .then(data => {
           setData(data.searchResult);
         });
       return;
     } else if (location.pathname === '/category/fashion') {
-      fetch('http://' + URI + ':8000/category/fashion')
+      fetch('http://' + URI + backPORT + '/category/fashion')
         .then(res => res.json())
         .then(data => {
           setData(data);
         });
       return;
     } else if (location.pathname === '/category/travel') {
-      fetch('http://' + URI + ':8000/category/travel')
+      fetch('http://' + URI + backPORT + '/category/travel')
         .then(res => res.json())
         .then(data => {
           setData(data);
         });
       return;
     } else if (location.pathname === '/category/pattern') {
-      fetch('http://' + URI + ':8000/category/pattern')
+      fetch('http://' + URI + backPORT + '/category/pattern')
         .then(res => res.json())
         .then(data => {
           setData(data);
         });
       return;
     } else if (location.pathname === '/category/animal') {
-      fetch('http://' + URI + ':8000/category/animal')
+      fetch('http://' + URI + backPORT + '/category/animal')
         .then(res => res.json())
         .then(data => {
           setData(data);
@@ -92,7 +93,7 @@ function CardList({ filter, URI, testState }) {
     } else if (location.pathname === '/category/searchlist') {
       // let params = new URLSearchParams(location.search);
       let params = window.location.search;
-      fetch('http://' + URI + ':8000/works/' + params)
+      fetch('http://' + URI + backPORT + '/works/' + params)
         .then(res => res.json())
         .then(data => {
           setData(data.searchResult);
@@ -101,7 +102,7 @@ function CardList({ filter, URI, testState }) {
     } else if (location.pathname === '/category/searchlist') {
       // let params = new URLSearchParams(location.search);
       let params = window.location.search;
-      fetch('http://' + URI + ':8000/works/' + params)
+      fetch('http://' + URI + backPORT + '/works/' + params)
         .then(res => res.json())
         .then(data => {
           setData(data.searchResult);

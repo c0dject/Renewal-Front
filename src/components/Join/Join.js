@@ -29,6 +29,8 @@ function Join({ setJoinPage, URI }) {
     setFiles(event.target.files);
   }
 
+  const backPORT = process.env.REACT_APP_BACK_DEFAULT_PORT;
+  const frontPORT = process.env.REACT_APP_FRONT_DEFAULT_PORT;
   const clickJoin = function (event) {
     event.preventDefault();
 
@@ -58,7 +60,7 @@ function Join({ setJoinPage, URI }) {
       userEmail.current.value &&
       files[0]
     ) {
-      fetch('http://' + URI + ':8000/user/signup', {
+      fetch('http://' + URI + backPORT + '/user/signup', {
         method: 'POST',
         headers: {
           // 'Content-Type': 'multipart/form-data', // 헤더 없으면 에러남
@@ -77,7 +79,7 @@ function Join({ setJoinPage, URI }) {
 
           if (res.message === '회원가입 되었습니다.') {
             localStorage.clear();
-            window.location.href = 'http://' + URI + ':3000/works';
+            window.location.href = 'http://' + URI + frontPORT + '/works';
           }
 
           if (res.message === '아이디를 4자리 ~ 12자리 이내로 입력해주세요.') {

@@ -22,13 +22,13 @@ const Reply = ({
       setMenuBtn(false);
     }
   };
-
+  const backPORT = process.env.REACT_APP_BACK_DEFAULT_PORT;
   const [deletedReply, setDeletedReply] = useState(''); //삭제할 댓글
 
   //댓글 삭제 fetch
   const deleteReply = () => {
     alert('댓글을 삭제하시겠습니까?');
-    fetch('http://' + URI + ':8000/comments', {
+    fetch('http://' + URI + backPORT + '/comments', {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

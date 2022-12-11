@@ -10,12 +10,13 @@ const Channel = ({ URI }) => {
   const [followingInfo, setFollowingInfo] = useState([]); //팔로잉정보 데이터
   const [followerInfo, setFollowerInfo] = useState([]); //팔로워정보 데이터
   const id = localStorage.getItem('id');
+  const backPORT = process.env.REACT_APP_BACK_DEFAULT_PORT;
   let param = useParams();
   let params = param.user_id;
 
   //데이터 fetch
   useEffect(() => {
-    fetch('http://' + URI + ':8000/channel/' + params, {
+    fetch('http://' + URI + backPORT + '/channel/' + params, {
       headers: {
         'Content-Type': 'application/json',
       },

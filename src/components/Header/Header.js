@@ -9,6 +9,7 @@ function Header({ pathname }) {
   const location = useLocation();
   let nowPage = location.pathname;
   const URI = process.env.REACT_APP_BASE_URL;
+  const frontPORT = process.env.REACT_APP_FRONT_DEFAULT_PORT;
 
   //로그인 여부 체크
   const [isLogin, setIsLogin] = useState(false);
@@ -186,7 +187,8 @@ function Header({ pathname }) {
                     <li
                       onClick={() => {
                         localStorage.clear();
-                        window.location.href = 'http://' + URI + ':3000/works';
+                        window.location.href =
+                          'http://' + URI + frontPORT + '/works';
                       }}
                     >
                       로그아웃

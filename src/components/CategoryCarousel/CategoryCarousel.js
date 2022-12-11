@@ -12,9 +12,10 @@ const CategoryCarousel = ({ URI }) => {
   const [isClick, setIsClick] = useState(true);
 
   const navigate = useNavigate();
+  const backPORT = process.env.REACT_APP_BACK_DEFAULT_PORT;
 
   useEffect(() => {
-    fetch('http://' + URI + ':8000/works')
+    fetch('http://' + URI + backPORT + '/works')
       .then(res => res.json())
       .then(json => {
         setCategories(json.categorySortCountList);

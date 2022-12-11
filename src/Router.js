@@ -14,6 +14,8 @@ import Category from './pages/Category/Category';
 const Router = () => {
   const [isLogin, setIsLogin] = useState(false);
   const URI = process.env.REACT_APP_BASE_URL;
+  const PORT = process.env.REACT_APP_FRONT_DEFAULT_PORT;
+
   useEffect(() => {
     if (localStorage.getItem('token')) {
       setIsLogin(true);
@@ -23,15 +25,15 @@ const Router = () => {
   }, [isLogin]);
   //처음 접속 시 토큰 여부에 따라 시작 페이지 설정
   if (
-    (window.location.href === 'http://' + URI + ':3000/') &
+    (window.location.href === 'http://' + URI + PORT + '/') &
     (isLogin === false)
   ) {
-    window.location.href = 'http://' + URI + ':3000/works';
+    window.location.href = 'http://' + URI + PORT + '/works';
   } else if (
-    (window.location.href === 'http://' + URI + ':3000/') &
+    (window.location.href === 'http://' + URI + PORT + '/') &
     (isLogin === true)
   ) {
-    window.location.href = 'http://' + URI + ':3000/feeds';
+    window.location.href = 'http://' + URI + PORT + '/feeds';
   }
 
   return (

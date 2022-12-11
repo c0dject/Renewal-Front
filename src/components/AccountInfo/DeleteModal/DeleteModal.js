@@ -3,6 +3,7 @@ import './DeleteModal.scss';
 
 const DeleteModal = ({ setModalOpen, URI }) => {
   const navigate = useNavigate();
+  const backPORT = process.env.REACT_APP_BACK_DEFAULT_PORT;
   //모달 내용 배열
   const modalContentArray = [
     {
@@ -39,7 +40,7 @@ const DeleteModal = ({ setModalOpen, URI }) => {
   //데이터 삭제
   const deleteAccount = e => {
     e.preventDefault();
-    fetch('http://' + URI + ':8000/user/accountInfo', {
+    fetch('http://' + URI + backPORT + '/user/accountInfo', {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

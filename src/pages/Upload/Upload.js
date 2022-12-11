@@ -16,6 +16,8 @@ function App() {
 
   const [cardData, setCardData] = useState(null);
   const URI = process.env.REACT_APP_BASE_URL;
+  const backPORT = process.env.REACT_APP_BACK_DEFAULT_PORT;
+  const frontPORT = process.env.REACT_APP_FRONT_DEFAULT_PORT;
 
   const [previewImg, setPreviewImg] = useState(null);
 
@@ -50,7 +52,7 @@ function App() {
 
   useEffect(() => {
     if (cardData !== null) {
-      fetch('http://' + URI + ':8000/upload/form', {
+      fetch('http://' + URI + backPORT + '/upload/form', {
         method: 'POST',
         headers: {
           Authorization: localStorage.getItem('token'),
@@ -61,7 +63,7 @@ function App() {
         .then(res => {
           console.log(res);
           if (res.message === '업로드 성공') {
-            window.location.href = 'http://' + URI + ':3000/feeds';
+            window.location.href = 'http://' + URI + frontPORT + '/feeds';
           }
         });
     }

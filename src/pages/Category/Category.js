@@ -12,6 +12,7 @@ function App() {
   const params = useParams();
   const navigate = useNavigate();
   const URI = process.env.REACT_APP_BASE_URL;
+  const frontPORT = process.env.REACT_APP_FRONT_DEFAULT_PORT
 
   const categoryList = [
     '패션',
@@ -27,23 +28,23 @@ function App() {
 
   function moveCategory(event) {
     if (event.target.innerText === '패션')
-      window.location.href = 'http://' + URI + ':3000/category/fashion';
+      window.location.href = 'http://' + URI + frontPORT + '/category/fashion';
     if (event.target.innerText === '패턴&질감')
-      window.location.href = 'http://' + URI + ':3000/category/pattern';
+      window.location.href = 'http://' + URI + frontPORT + '/category/pattern';
     if (event.target.innerText === '여행')
-      window.location.href = 'http://' + URI + ':3000/category/travel';
+      window.location.href = 'http://' + URI + frontPORT + '/category/travel';
     if (event.target.innerText === '동물')
-      window.location.href = 'http://' + URI + ':3000/category/animal';
+      window.location.href = 'http://' + URI + frontPORT + '/category/animal';
     if (event.target.innerText === '애니메이션')
-      window.location.href = 'http://' + URI + ':3000/category/animation';
+      window.location.href = 'http://' + URI + frontPORT + '/category/animation';
     if (event.target.innerText === '디자인')
-      window.location.href = 'http://' + URI + ':3000/category/design';
+      window.location.href = 'http://' + URI + frontPORT + '/category/design';
     if (event.target.innerText === '조소/공예')
-      window.location.href = 'http://' + URI + ':3000/category/craft';
+      window.location.href = 'http://' + URI + frontPORT + '/category/craft';
     if (event.target.innerText === '사운드')
-      window.location.href = 'http://' + URI + ':3000/category/sound';
+      window.location.href = 'http://' + URI + frontPORT + '/category/sound';
     if (event.target.innerText === '헬로! 아티스트')
-      window.location.href = 'http://' + URI + ':3000/category/helloartist';
+      window.location.href = 'http://' + URI + frontPORT + '/category/helloartist';
   }
 
   function clickCategory(event) {
