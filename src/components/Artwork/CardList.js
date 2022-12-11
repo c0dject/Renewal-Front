@@ -119,7 +119,7 @@ function CardList({ filter, URI, testState }) {
             <Card
               key={elem.id}
               id={elem.id}
-              nickname={elem.nickname}
+              kor_name={elem.kor_name}
               profile_image={elem.profile_image}
               img_url={elem.img_url}
               title={elem.title}

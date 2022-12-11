@@ -4,7 +4,7 @@ import './card.scss';
 
 function Card({
   id,
-  nickname,
+  kor_name,
   profile_image,
   img_url,
   title,
@@ -32,7 +32,7 @@ function Card({
       <div className="cardTitle">
         <span className="cardTitleSpan">{title}</span>
         <div className="cardProfileDiv">
-          <span>{nickname}</span>
+          <span>{kor_name}</span>
         </div>
       </div>
       <div className="cardValue">

@@ -5,6 +5,7 @@ import './chanelCard.scss';
 function Card({
   id,
   nickname,
+  kor_name,
   profile_image,
   img_url,
   title,
@@ -29,7 +30,7 @@ function Card({
         <span className="chanelcardTitleSpan">{title}</span>
         <div>
           <img />
-          <span>{nickname}</span>
+          <span>{kor_name}</span>
         </div>
       </div>
       <div className="chanelcardValue">

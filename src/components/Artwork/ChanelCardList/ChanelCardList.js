@@ -24,7 +24,7 @@ function CardList({ filter, URI }) {
           <Card
             key={idx}
             id={elem.id}
-            nickname={elem.nickname}
+            kor_name={elem.kor_name}
             profile_image={elem.profile_image}
             img_url={elem.img_url}
             title={elem.title}
