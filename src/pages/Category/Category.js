@@ -12,7 +12,7 @@ function App() {
   const params = useParams();
   const navigate = useNavigate();
   const URI = process.env.REACT_APP_BASE_URL;
-  const frontPORT = process.env.REACT_APP_FRONT_DEFAULT_PORT
+  const frontPORT = process.env.REACT_APP_FRONT_DEFAULT_PORT;
 
   const categoryList = [
     '패션',
@@ -36,7 +36,8 @@ function App() {
     if (event.target.innerText === '동물')
       window.location.href = 'http://' + URI + frontPORT + '/category/animal';
     if (event.target.innerText === '애니메이션')
-      window.location.href = 'http://' + URI + frontPORT + '/category/animation';
+      window.location.href =
+        'http://' + URI + frontPORT + '/category/animation';
     if (event.target.innerText === '디자인')
       window.location.href = 'http://' + URI + frontPORT + '/category/design';
     if (event.target.innerText === '조소/공예')
@@ -44,7 +45,8 @@ function App() {
     if (event.target.innerText === '사운드')
       window.location.href = 'http://' + URI + frontPORT + '/category/sound';
     if (event.target.innerText === '헬로! 아티스트')
-      window.location.href = 'http://' + URI + frontPORT + '/category/helloartist';
+      window.location.href =
+        'http://' + URI + frontPORT + '/category/helloartist';
   }
 
   function clickCategory(event) {

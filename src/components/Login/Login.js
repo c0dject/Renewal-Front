@@ -44,7 +44,8 @@ function Login({ closeLoginpage, setJoinPage, setOpenLoginPage, URI }) {
             localStorage.setItem('id', res.id);
             localStorage.setItem('kor_name', res.name);
           }
-          if (res.token) window.location.href = 'http://' + URI + frontPORT + '/works';
+          if (res.token)
+            window.location.href = 'http://' + URI + frontPORT + '/works';
         });
     }
   }, [resObj]);

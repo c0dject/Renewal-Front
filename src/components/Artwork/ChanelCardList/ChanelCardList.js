@@ -5,7 +5,7 @@ import './chanelCardList.scss';
 
 function CardList({ filter, URI }) {
   const [data, setData] = useState([]);
-  const backPORT= process.env.REACT_APP_BACK_DEFAULT_PORT
+  const backPORT = process.env.REACT_APP_BACK_DEFAULT_PORT;
   let param = useParams();
   let params = param.user_id;
 
